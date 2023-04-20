@@ -47,6 +47,9 @@ public class Main {
             }
         }
 
+        // восстанавливаем неотсортированный массив
+        arr1 = arr2.clone();
+
         long timeStart2 = System.currentTimeMillis();
         sort.arraySort(arr1);
         long timeEnd2 = System.currentTimeMillis();
@@ -58,26 +61,31 @@ public class Main {
             }
         }
 
+        // восстанавливаем неотсортированный массив
+        arr1 = arr2.clone();
+
         LocalDateTime dateStart1 = LocalDateTime.now();
-        sort.quickSort(arr2, 0, arr2.length-1);
+        sort.quickSort(arr1, 0, arr1.length-1);
         LocalDateTime dateEnd1 = LocalDateTime.now();
 
         if (printArrays) {
-            System.out.println("\nСортировка массива arr2 методом quick sort");
-            for (int i = 0; i < arr2.length; i++) {
+            System.out.println("\nСортировка массива arr1 методом quick sort");
+            for (int i = 0; i < arr1.length; i++) {
                 System.out.println(arr2[i]);
             }
         }
 
+        // восстанавливаем неотсортированный массив
+        arr1 = arr2.clone();
 
         LocalDateTime dateStart2 = LocalDateTime.now();
-        sort.arraySort(arr2);
+        sort.arraySort(arr1);
         LocalDateTime dateEnd2 = LocalDateTime.now();
 
         if (printArrays) {
-            System.out.println("\nСортировка массива arr2 методом Arrays.sort");
-            for (int i = 0; i < arr2.length; i++) {
-                System.out.println(arr2[i]);
+            System.out.println("\nСортировка массива arr1 методом Arrays.sort");
+            for (int i = 0; i < arr1.length; i++) {
+                System.out.println(arr1[i]);
             }
         }
         System.out.println("\nИзмерения с помощью System.currentTimeMillis()");
@@ -85,7 +93,7 @@ public class Main {
         System.out.println("Время сортировки arr1 методом Arrays.sort, мс.: " + (timeEnd2 - timeStart2));
 
         System.out.println("\nИзмерения с помощью Duration.between()");
-        System.out.println("Время сортировки arr2 методом quick sort, мс.: " + Duration.between(dateStart1,dateEnd1).toMillis());
-        System.out.println("Время сортировки arr2 методом Arrays.sort, мс.: " + Duration.between(dateStart2,dateEnd2).toMillis());
+        System.out.println("Время сортировки arr1 методом quick sort, мс.: " + Duration.between(dateStart1,dateEnd1).toMillis());
+        System.out.println("Время сортировки arr1 методом Arrays.sort, мс.: " + Duration.between(dateStart2,dateEnd2).toMillis());
     }
 }
