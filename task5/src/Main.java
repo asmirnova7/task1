@@ -34,7 +34,7 @@ public class Main {
         System.out.printf("n = ");
         double n = scanner.nextDouble();
 
-        rectangularTriangle rectTriangle = new rectangularTriangle(m,n,90);
+        rectangularTriangle rectTriangle = new rectangularTriangle(m,n);
 
         System.out.println(String.format("Периметр прямоугольного треугольника = %s", rectTriangle.getPerimeter()));
         System.out.println(String.format("Площадь прямоугольного треугольника = %s", rectTriangle.getArea()));
@@ -43,7 +43,7 @@ public class Main {
         System.out.printf("k = ");
         double k = scanner.nextDouble();
 
-        equilateralTriangle eqTriangle = new equilateralTriangle(k,k,60);
+        equilateralTriangle eqTriangle = new equilateralTriangle(k);
 
         System.out.println(String.format("Периметр равностороннего треугольника = %s", eqTriangle.getPerimeter()));
         System.out.println(String.format("Площадь равностороннего треугольника = %s", eqTriangle.getArea()));

@@ -14,8 +14,8 @@ public class equilateralTriangle extends triangle{
         this.c = c;
     }
 
-    public equilateralTriangle(double a, double b, double angle) {
-        super(a, b, angle);
+    public equilateralTriangle(double a) {
+        super(a, a, 60);
         c = a;
     }
 
