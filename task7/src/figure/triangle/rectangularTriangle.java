@@ -9,13 +9,4 @@ public class rectangularTriangle extends triangle  {
     public  double getPerimeter() {
         return sqrt(super.getA() * super.getA() + super.getB() * super.getB()) + (super.getA() + super.getB());
     }
-
-    @Override
-    public String toString() {
-        return String.format("Прямоугольный треугольник со сторонами a = %s, b = %s, периметр %.3f, площадь %.3f",
-                super.getA(),
-                super.getB(),
-                getPerimeter(),
-                super.getArea());
-    }
 }

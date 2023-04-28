@@ -28,7 +28,7 @@ public class Main {
         for (int i = 0; i < MAX_SIZE; i++) {
             arrayList.add(UUID.randomUUID().toString());
             linkedList.add(UUID.randomUUID().toString());
-        };
+        }
 
         addFirstElement(arrayList, UUID.randomUUID().toString());
         addFirstElement(linkedList, UUID.randomUUID().toString());
@@ -144,9 +144,7 @@ public class Main {
 
     public static void runAllElements(List<String> someList) {
         long before = System.nanoTime();
-        for (String elem: someList) {
-           ;
-        }
+        for (String elem: someList) { ; }
         long after = System.nanoTime();
         long count = after - before;
 

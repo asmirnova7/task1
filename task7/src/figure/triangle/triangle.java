@@ -46,7 +46,14 @@ public abstract class triangle implements Comparable<triangle> {
 
     @Override
     public String toString() {
-        return String.format("Треугольник со сторонами a = %s, b = %s и <ab = %s", a, b, angle);
+        String s = "";
+        if (this.angle == 90) {
+            s = "Прямоугольный ";
+        }
+        else if (this.angle == 60) {
+            s = "Равносторонний ";
+        }
+        return String.format(s + "треугольник со сторонами a = %s, b = %s, периметр %.3f, площадь %.3f", a, b, getPerimeter(), getArea());
     }
 
     @Override
