@@ -26,8 +26,8 @@ public class LinkList<E> implements Iterable<E> {
         }
     }
 
-    ListIterator iterator = new ListIterator();
-    static class ListIterator implements Iterator {
+   // ListIterator<E> iterator = new ListIterator<E>();
+    static class ListIterator<E> implements Iterator<E> {
 
         private int currentIndex = 0;
 
@@ -37,8 +37,8 @@ public class LinkList<E> implements Iterable<E> {
         }
 
         @Override
-        public ListItem next() {
-            ListItem item = null;
+        public E next() {
+            ListItem<E> item = null;
             if (currentIndex == 0)
             {
                 item = current = head;
@@ -47,16 +47,18 @@ public class LinkList<E> implements Iterable<E> {
                 item = current.next;
             }
             currentIndex++;
-            return item;
+            return item.data;
         }
     }
 
     @Override
-    public ListIterator iterator() {
-        this.iterator.currentIndex = 0;
-        return iterator;
+    public ListIterator<E> iterator() {
+        return new ListIterator<E>();
     }
 
+    public int getCurrentSize() {
+        return currentSize - 1;
+    }
     public void add(E data) {
         ListItem newItem = new ListItem(data);
 
@@ -121,7 +123,7 @@ public class LinkList<E> implements Iterable<E> {
         ListItem currNode = head, prev = null;
 
         if (index == 0 && currNode != null) {
-            head = currNode.next;
+            prev = head = currNode.next;
         }
 
         int counter = 0;
