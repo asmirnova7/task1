@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Main {
     public static void main(String[] args) {
 
-        task1();
+        //task1();
 
         task2();
     }
@@ -13,7 +13,7 @@ public class Main {
     public static void task2() {
         LinkList<String> linkList = new LinkList<>();
 
-        int n = 40000;
+        int n = 100000;
         for (int i = 0; i < n; i++) {
             linkList.add(UUID.randomUUID().toString());
         }

@@ -26,7 +26,7 @@ public class LinkList<E> implements Iterable<E> {
         }
     }
 
-   // ListIterator<E> iterator = new ListIterator<E>();
+
     static class ListIterator<E> implements Iterator<E> {
 
         private int currentIndex = 0;
@@ -45,6 +45,7 @@ public class LinkList<E> implements Iterable<E> {
             }
             else {
                 item = current.next;
+                current = item;
             }
             currentIndex++;
             return item.data;
