@@ -9,28 +9,13 @@ public class Main {
         for (int i = 1; i <= 12; i++) {
             MyThread thread = new MyThread(i);
             threads[i-1] = thread;
-            thread.run();
+            thread.start();
         }
 
-        long start = System.currentTimeMillis();
-        boolean interruptAll = false;
-        while(true) {
-            for (MyThread thread :
-                    threads) {
-                thread.printThread();
-                if (System.currentTimeMillis() - start >= 100000) {
-                    interruptAll = true;
-                    break;
-                }
-            }
-            if (interruptAll) {
-                for (MyThread thread :
-                        threads) {
-                    thread.interrupt();
-                }
-                break;
-            }
+        for (Thread thread : threads) {
+            thread.join();
         }
+
         System.out.println("All threads finished");
     }
 }
