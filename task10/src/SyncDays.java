@@ -3,7 +3,7 @@ import java.time.Month;
 public class SyncDays {
 
     public static boolean isLocked = false;
-    public synchronized void printMonth(int monthNum, String threadName) throws InterruptedException {
+    public synchronized void printMonth(int monthNum) throws InterruptedException {
 
         if (!Thread.currentThread().interrupted()) {
             while (isLocked) {
@@ -12,7 +12,7 @@ public class SyncDays {
 
             isLocked = true;
             boolean interruptAfter = false;
-            System.out.print("Days of " + threadName + ": ");
+            System.out.print("Days of " + Thread.currentThread().getName() + ": ");
             for (int i = 1; i <= Month.of(monthNum).length(false); i++) {
                 System.out.print(" " + i + " ");
                 try {
